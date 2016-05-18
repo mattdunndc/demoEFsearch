@@ -1,5 +1,7 @@
 ﻿var testCtrl = function ($scope) {
     $scope.message = "Hello from testController";
+    // Display an info toast with no title
+    toastr.info('Loading Search parameters...');
     $scope.availableSearchParams = [
   { key: "charter", name: "Charter", placeholder: "Charter..." },
   { key: "institution", name: "Institution", placeholder: "Insitution...", restrictToSuggestedValues: true, suggestedValues: ['Citibank', 'JP Morgan', 'Bank of America'] },

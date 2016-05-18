@@ -13,7 +13,7 @@ namespace EFDbFirst.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Search()
         {
             ViewBag.Message = "Your application description page.";
 

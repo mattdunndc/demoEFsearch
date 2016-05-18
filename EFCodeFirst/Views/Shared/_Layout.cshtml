@@ -4,6 +4,15 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-resource.min.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <script src="~/Scripts/toastr.min.js"></script>
+
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -21,7 +30,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Search Demo", "About", "Home")</li>
+                    <li>@Html.ActionLink("Search Demo", "Search", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 <p class="nav navbar-text navbar-right">Hello, @User.Identity.Name!</p>

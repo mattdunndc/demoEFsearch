@@ -49,12 +49,20 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -112,17 +120,12 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http.Formatting">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.2\lib\net45\System.Net.Http.Formatting.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Http">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.2\lib\net45\System.Web.Http.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Http.WebHost">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.2\lib\net45\System.Web.Http.WebHost.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\ctrl\userCtrl.js" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -136,8 +139,30 @@
   <ItemGroup>
     <Content Include="app\app.js" />
     <Content Include="app\ctrl\testCtrl.js" />
+    <Content Include="app\services\services.js" />
+    <Content Include="Content\angular-material-icons\action.svg" />
+    <Content Include="Content\angular-material-icons\alert.svg" />
+    <Content Include="Content\angular-material-icons\av.svg" />
+    <Content Include="Content\angular-material-icons\communication.svg" />
+    <Content Include="Content\angular-material-icons\content.svg" />
+    <Content Include="Content\angular-material-icons\device.svg" />
+    <Content Include="Content\angular-material-icons\editor.svg" />
+    <Content Include="Content\angular-material-icons\file.svg" />
+    <Content Include="Content\angular-material-icons\hardware.svg" />
+    <Content Include="Content\angular-material-icons\image.svg" />
+    <Content Include="Content\angular-material-icons\maps.svg" />
+    <Content Include="Content\angular-material-icons\navigation.svg" />
+    <Content Include="Content\angular-material-icons\notification.svg" />
+    <Content Include="Content\angular-material-icons\social.svg" />
+    <Content Include="Content\angular-material-icons\toggle.svg" />
+    <Content Include="Content\angular-material.css" />
+    <Content Include="Content\angular-material.layouts.css" />
+    <Content Include="Content\angular-material.layouts.min.css" />
+    <Content Include="Content\angular-material.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -151,18 +176,26 @@
     <Content Include="Scripts\advanced\angular-advanced-searchbox.min.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
+    <Content Include="Scripts\angular-animate\angular-animate.js" />
+    <Content Include="Scripts\angular-animate\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
     <Content Include="Scripts\angular-aria.min.js" />
+    <Content Include="Scripts\angular-aria\angular-aria.js" />
+    <Content Include="Scripts\angular-aria\angular-aria.min.js" />
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-csp.css" />
     <Content Include="Scripts\angular-loader.js" />
     <Content Include="Scripts\angular-loader.min.js" />
+    <Content Include="Scripts\angular-material\angular-material-mocks.js" />
+    <Content Include="Scripts\angular-material\angular-material.js" />
+    <Content Include="Scripts\angular-material\angular-material.min.js" />
     <Content Include="Scripts\angular-message-format.js" />
     <Content Include="Scripts\angular-message-format.min.js" />
     <Content Include="Scripts\angular-messages.js" />
     <Content Include="Scripts\angular-messages.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-pagination\dirPagination.js" />
     <Content Include="Scripts\angular-parse-ext.js" />
     <Content Include="Scripts\angular-parse-ext.min.js" />
     <Content Include="Scripts\angular-resource.js" />
@@ -195,6 +228,11 @@
     <Content Include="Scripts\angular-aria.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
     <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="app\ctrl\dirPagination.tpl.html" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
+    <Content Include="Scripts\angular-aria\angular-aria.min.js.map" />
+    <Content Include="Scripts\angular-animate\angular-animate.min.js.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-dj.js" />
     <Content Include="Scripts\i18n\angular-locale_aa-er.js" />
@@ -950,6 +988,8 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -962,7 +1002,7 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />

@@ -1,17 +1,81 @@
-﻿@{
-    ViewBag.Title = "Contact";
-}
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+﻿@*Contact.cshtml*@
+<!DOCTYPE html>
+<html ng-app="testapp">
+<head>
+    <meta name="viewport" content="width=device-width" />
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+    <script src="~/Scripts/angular-material/angular-material.js"></script>
+
+    <link href="~/Scripts/advanced/angular-advanced-searchbox.min.css" rel="stylesheet" />
+    <script src="~/Scripts/advanced/angular-advanced-searchbox-tpls.min.js"></script>
+    <!-- optional for auto complete / suggested value feature -->
+    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    
+    <!-- angular pagination -->
+    <script src="~/Scripts/angular-pagination/dirPagination.js"></script>
+  
+    <script src="~/app/app.js"></script>
+    <script src="~/app/ctrl/userCtrl.js"></script>
+    <script src="~/app/services/services.js"></script>
+    <h2>Institutions via API</h2>
+</head>
+<body ng-controller="userCtrl" ng-init="getBanks()">
+    
+   <div class="row">
+        <div class="col-xs-4">
+            <label for="search">Search:</label>
+            <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+        </div>
+        <div class="col-xs-4">
+            <label for="search">items per page:</label>
+            <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+        </div>
+        <div class="col-xs-4">
+            <h4>Page No.: {{ currentPage }}</h4>
+        </div>
+    </div>
+    <br>
+    <div class="panel panel-default">
+    <!-- optional for auto complete / suggested value feature
+    <div class="panel-body">
+        <ul>
+            <li dir-paginate="bank in banks | filter:q | itemsPerPage: pageSize" current-page="currentPage">{{ bank.inst_short_name }} {{ bank.inst_occ_asgnd_id }}</li>
+        </ul>
+    </div>
+    -->
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th ng-click="sort('inst_short_name')">Bank Name
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='inst_short_name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="sort('inst_occ_asgnd_id')">Charter
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='inst_occ_asgnd_id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="sort('inst_loc_city_name')">City
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='inst_loc_city_name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </th>
+                        <th ng-click="sort('inst_loc_st_abbrv')">State
+                            <span class="glyphicon sort-icon" ng-show="sortKey=='inst_loc_st_abbrv'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr dir-paginate="bank in banks | filter:q | orderBy:sortKey:reverse | itemsPerPage: pageSize" current-page="currentPage">
+                        <td>{{bank.inst_short_name}}</td>
+                        <td>{{bank.inst_occ_asgnd_id}}</td>
+                        <td>{{bank.inst_loc_city_name}}</td>
+                        <td>{{bank.inst_loc_st_abbrv}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    
+    <div class="text-">
+        <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="~/app/ctrl/dirPagination.tpl.html"></dir-pagination-controls>
+    </div>
+
+</body>
+</html>
