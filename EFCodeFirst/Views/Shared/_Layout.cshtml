@@ -8,15 +8,23 @@
     <script src="~/Scripts/angular.min.js"></script>
     <script src="~/Scripts/angular-resource.min.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
 
     <link href="~/Content/toastr.css" rel="stylesheet" />
     <script src="~/Scripts/toastr.min.js"></script>
 
+    <script src="~/app/app.js"></script>
+    <script src="~/app/ctrl/homeCtrl.js"></script>
+    <script src="~/app/ctrl/searchCtrl.js"></script>
+    <script src="~/app/ctrl/testCtrl.js"></script>
+    
+    <script src="~/app/ctrl/userCtrl.js"></script>
+    <script src="~/app/services/services.js"></script>
 
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
-<body>
+<body ng-app="testapp">
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -48,5 +56,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
 </body>
 </html>

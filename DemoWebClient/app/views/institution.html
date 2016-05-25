@@ -1,0 +1,73 @@
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
+<head></head>
+<body>
+<p>{{message}}</p>
+
+<!-- end -->
+<div class="row">
+    <div class="col-xs-4">
+        <label for="search">Search:</label>
+        <input ng-model="q" id="search" class="form-control" placeholder="Filter text">
+    </div>
+    <div class="col-xs-4">
+        <label for="search">items per page:</label>
+        <input type="number" min="1" max="100" class="form-control" ng-model="pageSize">
+    </div>
+    <div class="col-xs-4">
+        <h4>Page No.: {{ currentPage }}</h4>
+    </div>
+</div>
+<br>
+<div class="panel panel-default">
+<!-- optional for auto complete / suggested value feature
+<div class="panel-body">
+    <ul>
+        <li dir-paginate="bank in banks | filter:q | itemsPerPage: pageSize" current-page="currentPage">{{ bank.inst_short_name }} {{ bank.inst_occ_asgnd_id }}</li>
+    </ul>
+</div>
+-->
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th ng-click="sort('inst_short_name')">
+                Bank Name
+                <span class="glyphicon sort-icon" ng-show="sortKey=='inst_short_name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th ng-click="sort('inst_occ_asgnd_id')">
+                Charter
+                <span class="glyphicon sort-icon" ng-show="sortKey=='inst_occ_asgnd_id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th ng-click="sort('inst_loc_city_name')">
+                City
+                <span class="glyphicon sort-icon" ng-show="sortKey=='inst_loc_city_name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+            <th ng-click="sort('inst_loc_st_abbrv')">
+                State
+                <span class="glyphicon sort-icon" ng-show="sortKey=='inst_loc_st_abbrv'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr dir-paginate="bank in banks | filter:q | orderBy:sortKey:reverse | itemsPerPage: pageSize" current-page="currentPage">
+            <td>{{bank.inst_short_name}}</td>
+            <td>{{bank.inst_occ_asgnd_id}}</td>
+            <td>{{bank.inst_loc_city_name}}</td>
+            <td>{{bank.inst_loc_st_abbrv}}</td>
+            <td>
+                <a href="/edit/{{bank.inst_id}}" class="glyphicon glyphicon-edit"></a>
+            </td>
+            <td>
+                <a href="/delete/{{bank.inst_id}}" class="glyphicon glyphicon-trash"></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="text-">
+    <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" template-url="../../app/controllers/dirPagination.tpl.html"></dir-pagination-controls>
+</div>
+    
+</body>
+</html>

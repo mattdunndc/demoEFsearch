@@ -125,6 +125,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\ctrl\searchCtrl.js" />
+    <Content Include="app\ctrl\homeCtrl.js" />
     <Content Include="app\ctrl\userCtrl.js" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -140,6 +142,9 @@
     <Content Include="app\app.js" />
     <Content Include="app\ctrl\testCtrl.js" />
     <Content Include="app\services\services.js" />
+    <Content Include="app\views\contact.html" />
+    <Content Include="app\views\home.html" />
+    <Content Include="app\views\search.html" />
     <Content Include="Content\angular-material-icons\action.svg" />
     <Content Include="Content\angular-material-icons\alert.svg" />
     <Content Include="Content\angular-material-icons\av.svg" />

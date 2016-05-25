@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace EFDbFirst.Controllers
 {
+    
+    
     public class HomeController : Controller
     {
         public ActionResult Index()
@@ -20,6 +22,9 @@ namespace EFDbFirst.Controllers
             return View();
         }
 
+        // eg: /books
+        // eg: /books/1430210079
+        //[Route(“books/{isbn?}”)]
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
