@@ -1,9 +1,9 @@
 ﻿'use strict';
 app.controller('ContactController', function ($scope, odataService, notificationFactory) {
     // Get Top 10 Employees
-    notificationFactory.info('Loading Banks...');
+    notificationFactory.info('Loading States...');
     $scope.getBanks = function () {
-        (new odataService()).$getTop1000({ entity: 't_inst_institutn' })
+        (new odataService()).$getTop1000({ entity: 't_stcd_state_cd' })
             .then(function (data) {
 
                 $scope.currentPage = 1;
@@ -14,7 +14,7 @@ app.controller('ContactController', function ($scope, odataService, notification
                 $scope.pageChangeHandler = function (num) {
                     console.log('page changed to ' + num);
                 };
-                notificationFactory.success('Banks loaded.');
+                notificationFactory.success('States loaded.');
                 
             });
     };
@@ -26,7 +26,7 @@ app.controller('ContactController', function ($scope, odataService, notification
         $scope.reverse = !$scope.reverse; //if true make it false and vice versa
     };
 
-        $scope.message = 'Contact controller loaded';
+        //$scope.message = 'Contact controller loaded';
     }
 
 );

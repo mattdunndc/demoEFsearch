@@ -19,7 +19,7 @@ namespace NRPTmodel
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal rrac_id { get; set; }
 
-        public int? rrac_inst_id { get; set; }
+        public int rrac_inst_id { get; set; }
 
         public int? rrac_work_loc_rrlc_id { get; set; }
 
@@ -97,8 +97,6 @@ namespace NRPTmodel
 
         [StringLength(1)]
         public string rrac_priority_reason_cd { get; set; }
-
-        public int? rrac_rrpj_id { get; set; }
 
         [StringLength(1)]
         public string rrac_lbs_priority_cd { get; set; }

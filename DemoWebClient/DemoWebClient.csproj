@@ -43,6 +43,9 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Cors">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -119,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\aboutCtrl.js" />
+    <Content Include="app\controllers\instAddEditCtrl.js" />
     <Content Include="app\controllers\institutionCtrl.js" />
     <Content Include="app\controllers\contactCtrl.js" />
     <Content Include="app\controllers\searchCtrl.js" />
@@ -126,6 +130,9 @@
     <Content Include="app\demoapp.js" />
     <Content Include="app\services\services.js" />
     <Content Include="app\views\about.html" />
+    <Content Include="app\views\editBankModal.html" />
+    <Content Include="app\views\instEdit.html" />
+    <Content Include="app\views\institAddEdit.html" />
     <Content Include="app\views\institution.html" />
     <Content Include="app\views\contact.html" />
     <Content Include="app\controllers\dirPagination.tpl.html" />

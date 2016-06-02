@@ -30,30 +30,21 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th ng-click="sort('inst_short_name')">
+            <th ng-click="sort('stcd_state_desc')">
                 Bank Name
-                <span class="glyphicon sort-icon" ng-show="sortKey=='inst_short_name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                <span class="glyphicon sort-icon" ng-show="sortKey=='stcd_state_desc'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
             </th>
-            <th ng-click="sort('inst_occ_asgnd_id')">
-                Charter
-                <span class="glyphicon sort-icon" ng-show="sortKey=='inst_occ_asgnd_id'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-            </th>
-            <th ng-click="sort('inst_loc_city_name')">
-                City
-                <span class="glyphicon sort-icon" ng-show="sortKey=='inst_loc_city_name'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
-            </th>
-            <th ng-click="sort('inst_loc_st_abbrv')">
+            
+            <th ng-click="sort('stcd_state_abbrv')">
                 State
-                <span class="glyphicon sort-icon" ng-show="sortKey=='inst_loc_st_abbrv'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+                <span class="glyphicon sort-icon" ng-show="sortKey=='stcd_state_abbrv'" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
             </th>
         </tr>
         </thead>
         <tbody>
         <tr dir-paginate="bank in banks | filter:q | orderBy:sortKey:reverse | itemsPerPage: pageSize" current-page="currentPage">
-            <td>{{bank.inst_short_name}}</td>
-            <td>{{bank.inst_occ_asgnd_id}}</td>
-            <td>{{bank.inst_loc_city_name}}</td>
-            <td>{{bank.inst_loc_st_abbrv}}</td>
+            <td>{{bank.stcd_state_desc}}</td>
+            <td>{{bank.stcd_state_abbrv}}</td>
         </tr>
         </tbody>
     </table>

@@ -12,10 +12,13 @@ namespace NRPTmodel
         [Column(Order = 0, TypeName = "numeric")]
         public decimal activity_id { get; set; }
 
-        public int? inst_id { get; set; }
-
         [Key]
         [Column(Order = 1)]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int inst_id { get; set; }
+
+        [Key]
+        [Column(Order = 2)]
         [StringLength(11)]
         public string activity_status { get; set; }
 

@@ -13,7 +13,7 @@ namespace NRPTmodel
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal rrqs_job_id { get; set; }
 
-        public int? rrqs_inst_id { get; set; }
+        public int rrqs_inst_id { get; set; }
 
         [Column(TypeName = "numeric")]
         public decimal rrqs_activity_rrac_id { get; set; }
@@ -115,12 +115,12 @@ namespace NRPTmodel
         [StringLength(80)]
         public string rrqs_work_loc_country_nm { get; set; }
 
+        [StringLength(1)]
+        public string rrqs_eic_priority_cd { get; set; }
+
         [Required]
         [StringLength(1)]
         public string rrqs_delete_in { get; set; }
-
-        [StringLength(1)]
-        public string rrqs_eic_priority_cd { get; set; }
 
         [Required]
         [StringLength(1)]

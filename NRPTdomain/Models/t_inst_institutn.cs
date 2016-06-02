@@ -12,6 +12,8 @@ namespace NRPTmodel
         {
             t_rrac_activity = new HashSet<t_rrac_activity>();
             t_rrqs_resource_request = new HashSet<t_rrqs_resource_request>();
+            //
+            v_rrqs_aggregated_requests = new HashSet<v_rrqs_aggregated_requests>();
         }
 
         [Key]
@@ -145,10 +147,10 @@ namespace NRPTmodel
         [StringLength(6)]
         public string inst_ots_owner_nr { get; set; }
 
+        public DateTime inst_ml_server_chg_ts { get; set; }
+
         [StringLength(10)]
         public string inst_thrift_stock_mutual_tx { get; set; }
-
-        public DateTime inst_ml_server_chg_ts { get; set; }
 
         public decimal? inst_latest_asset_am { get; set; }
 
@@ -160,5 +162,7 @@ namespace NRPTmodel
         public virtual ICollection<t_rrac_activity> t_rrac_activity { get; set; }
 
         public virtual ICollection<t_rrqs_resource_request> t_rrqs_resource_request { get; set; }
+
+        public virtual ICollection<v_rrqs_aggregated_requests> v_rrqs_aggregated_requests { get; set; }
     }
 }

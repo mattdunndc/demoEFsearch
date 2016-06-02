@@ -1,12 +1,14 @@
 ﻿app.factory('odataService', function ($resource) {
     var odataUrl = 'http://localhost:65406/odata/';
+    var odataUrl2 = 'http://localhost:65406/odata/t_inst_institutn';
     return $resource('', {},
         {
-            'getAll': { method: 'GET', params: { entity: '@entity' }, url: odataUrl },
-            'getTop1000': { method: 'GET',params: { entity: '@entity' }, url: odataUrl + ':entity' + '?$top=1000' },
+            'getAll': { method: 'GET', params: { entity: '@entity' }, url: odataUrl + ':entity' },
+            'getTop1000': { method: 'GET',params: { entity: '@entity' }, url: odataUrl + ':entity' + '?$top=100' },
             'create': { method: 'POST', url: odataUrl },
-            'patch': { method: 'PATCH', params: { key: '@key' }, url: odataUrl + '(:key)' },
-            'getEntity': { method: 'GET', params: { key: '@key' }, url: odataUrl + '(:key)' },
+            'patchID': { method: 'PATCH', params: { entity: '@entity', id: '@id' }, url: odataUrl + ':entity' + '(:id)' },
+            'getEntityID': { method: 'GET', params: { entity: '@entity', id: '@id' }, url: odataUrl + ':entity' + '(:id)' },
+            'getEntity': { method: 'GET', params: { id: '@id' }, url: odataUrl2 + '(:id)' },
             'getEntityAddress': { method: 'GET', params: { key: '@key' }, url: odataUrl + '(:key)' + '/Address' },
             'getEntityCompany': { method: 'GET', params: { key: '@key' }, url: odataUrl + '(:key)' + '/Company' },
             'deleteEntity': { method: 'DELETE', params: { key: '@key' }, url: odataUrl + '(:key)' },

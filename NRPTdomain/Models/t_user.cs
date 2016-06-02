@@ -19,7 +19,6 @@ namespace NRPTmodel
             t_rrqs_resource_request2 = new HashSet<t_rrqs_resource_request>();
             t_rrqs_resource_request3 = new HashSet<t_rrqs_resource_request>();
             t_rrqs_resource_request4 = new HashSet<t_rrqs_resource_request>();
-            t_usaa_app_access = new HashSet<t_usaa_app_access>();
         }
 
         [Key]
@@ -94,7 +93,5 @@ namespace NRPTmodel
         public virtual ICollection<t_rrqs_resource_request> t_rrqs_resource_request3 { get; set; }
 
         public virtual ICollection<t_rrqs_resource_request> t_rrqs_resource_request4 { get; set; }
-
-        public virtual ICollection<t_usaa_app_access> t_usaa_app_access { get; set; }
     }
 }

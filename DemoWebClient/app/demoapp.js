@@ -27,9 +27,10 @@ app.config([
           templateUrl: '/app/views/search.html',
           controller: 'SearchController'
       })
-      .when('/Home/NRPT/:userid?', { // add question mark for optional parameter   
-          templateUrl: '/Scripts/app/views/NRPT.html',
-          controller: 'NRPTController'
+      .when('/Home/Institution/edit/:id?', { // add question mark for optional parameter   
+          templateUrl: '/app/views/instEdit.html',
+          controller: 'InstitutionAddEditController',
+          controllerAs: 'vm'
       })
       .otherwise({ redirectTo: '/' })
   }]);

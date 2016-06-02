@@ -4,6 +4,8 @@ namespace NRPTmodel
     using System.Data.Entity;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
+    using NRPTmodel;
+
 
     public partial class BasicDbContext : DbContext
     {
@@ -297,12 +299,6 @@ namespace NRPTmodel
                 .HasMany(e => e.t_rrac_activity1)
                 .WithOptional(e => e.t_rrac_activity2)
                 .HasForeignKey(e => e.rrac_primary_rrac_id);
-
-            modelBuilder.Entity<t_rrac_activity>()
-                .HasMany(e => e.t_rrqs_resource_request)
-                .WithRequired(e => e.t_rrac_activity)
-                .HasForeignKey(e => e.rrqs_activity_rrac_id)
-                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<t_rrqs_resource_request>()
                 .Property(e => e.rrqs_job_id)
