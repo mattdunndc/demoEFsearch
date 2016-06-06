@@ -11,9 +11,9 @@ app.config([
           templateUrl: '/app/views/home.html',
           controller: 'HomeController'
       })
-      .when('/Home/Contact', { // For Contact page  
-          templateUrl: '/app/views/contact.html',
-          controller: 'ContactController'
+      .when('/Home/Department', { // MVC For Contact page  
+          templateUrl: '/app/views/dept.html',
+          controller: 'DepartmentController'
       })
       .when('/Home/Institution', { // For instit page  
           templateUrl: '/app/views/institution.html',

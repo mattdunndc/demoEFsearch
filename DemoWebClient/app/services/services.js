@@ -1,6 +1,5 @@
 ﻿app.factory('odataService', function ($resource) {
     var odataUrl = 'http://localhost:65406/odata/';
-    var odataUrl2 = 'http://localhost:65406/odata/t_inst_institutn';
     return $resource('', {},
         {
             'getAll': { method: 'GET', params: { entity: '@entity' }, url: odataUrl + ':entity' },
@@ -8,7 +7,7 @@
             'create': { method: 'POST', url: odataUrl },
             'patchID': { method: 'PATCH', params: { entity: '@entity', id: '@id' }, url: odataUrl + ':entity' + '(:id)' },
             'getEntityID': { method: 'GET', params: { entity: '@entity', id: '@id' }, url: odataUrl + ':entity' + '(:id)' },
-            'getEntity': { method: 'GET', params: { id: '@id' }, url: odataUrl2 + '(:id)' },
+            'getEntity': { method: 'GET', params: { id: '@id' }, url: odataUrl + '(:id)' },
             'getEntityAddress': { method: 'GET', params: { key: '@key' }, url: odataUrl + '(:key)' + '/Address' },
             'getEntityCompany': { method: 'GET', params: { key: '@key' }, url: odataUrl + '(:key)' + '/Company' },
             'deleteEntity': { method: 'DELETE', params: { key: '@key' }, url: odataUrl + '(:key)' },
@@ -29,4 +28,15 @@
             toastr.error(text, "Error");
         }
     };
-});
+}).factory('apiService', ['$http',function ($http) {
+   
+    var urlBase = 'http://localhost:65406/api/';
+    var apiService = {};
+
+    apiService.getEntity = function (entity) {
+        return $http.get(urlBase+entity);
+    };
+
+    return apiService;
+    
+}]);

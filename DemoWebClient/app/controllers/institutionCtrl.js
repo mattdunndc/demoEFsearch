@@ -3,6 +3,7 @@ app.controller('InstitutionController', function ($scope, odataService, notifica
     // Get Top 10 Employees
     ////(new odataService()).$getTop1000({ entity: 't_inst_institutn' })
     /// (new odataService()).$getEntityID({ entity: 't_inst_institutn', id:957})
+    
     notificationFactory.info('Loading Banks...');
     $scope.getBanks = function () {
         (new odataService()).$getTop1000({ entity: 't_inst_institutn' })

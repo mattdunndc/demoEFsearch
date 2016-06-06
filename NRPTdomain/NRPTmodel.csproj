@@ -50,7 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TempEDM.cs" />
+    <Compile Include="nrptEDM.cs" />
+    <Compile Include="projEDM.cs" />
+    <Compile Include="tempEDM.cs" />
     <Compile Include="Models\t_dept_smartDTO.cs" />
     <Compile Include="Models\t_inst_institutnDTO.cs" />
     <Compile Include="Models\t_rrcs_city_state_near_rrlc.cs" />
@@ -58,14 +60,18 @@
     <Compile Include="Models\t_rrfa_rrqs_funct_area_ref.cs" />
     <Compile Include="Models\t_stcd_state_cd.cs" />
     <Compile Include="Models\t_userDTO.cs" />
-    <Compile Include="NRPTedm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\t_dept_smart.cs" />
     <Compile Include="Models\t_inst_institutn.cs" />
+    <Compile Include="Models\t_prdp_proj_dept.cs" />
+    <Compile Include="Models\t_prin_proj_inst.cs" />
+    <Compile Include="Models\t_proj_project.cs" />
     <Compile Include="Models\t_rrac_activity.cs" />
     <Compile Include="Models\t_rrqs_resource_request.cs" />
     <Compile Include="Models\t_user.cs" />
     <Compile Include="Models\v_rrqs_aggregated_requests.cs" />
+    <Compile Include="Models\t_vvlu_valid_value.cs" />
+    <Compile Include="vvluEDM.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

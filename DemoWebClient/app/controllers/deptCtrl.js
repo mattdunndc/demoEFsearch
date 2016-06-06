@@ -1,11 +1,17 @@
 ﻿'use strict';
-app.controller('ContactController', function ($scope, odataService, notificationFactory) {
+app.controller('DepartmentController', function ($scope, odataService, notificationFactory, apiService) {
     // Get Top 10 Employees
-    notificationFactory.info('Loading States...');
-    $scope.getBanks = function () {
-        (new odataService()).$getTop1000({ entity: 't_stcd_state_cd' })
-            .then(function (data) {
+    notificationFactory.info('Loading api...');
 
+    //$scope.depts = [];
+
+    getDepts();
+
+
+    function getDepts() {
+        apiService.getEntity('t_dept_smart')
+            .then(function (response) {
+                $scope.depts = response.data;
                 $scope.currentPage = 1;
                 $scope.pageSize = 10;
 
@@ -14,11 +20,11 @@ app.controller('ContactController', function ($scope, odataService, notification
                 $scope.pageChangeHandler = function (num) {
                     console.log('page changed to ' + num);
                 };
-                notificationFactory.success('States loaded.');
-                
+
+            }, function (error) {
+                $scope.message = 'Unable to load data: ' + error.message;
             });
-    };
-    $scope.getBanks(); // does initial load replaces ng-init
+    }
     
 
     $scope.sort = function (keyname) {

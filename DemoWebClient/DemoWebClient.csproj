@@ -124,7 +124,7 @@
     <Content Include="app\controllers\aboutCtrl.js" />
     <Content Include="app\controllers\instAddEditCtrl.js" />
     <Content Include="app\controllers\institutionCtrl.js" />
-    <Content Include="app\controllers\contactCtrl.js" />
+    <Content Include="app\controllers\deptCtrl.js" />
     <Content Include="app\controllers\searchCtrl.js" />
     <Content Include="app\controllers\homeCtrl.js" />
     <Content Include="app\demoapp.js" />
@@ -134,7 +134,7 @@
     <Content Include="app\views\instEdit.html" />
     <Content Include="app\views\institAddEdit.html" />
     <Content Include="app\views\institution.html" />
-    <Content Include="app\views\contact.html" />
+    <Content Include="app\views\dept.html" />
     <Content Include="app\controllers\dirPagination.tpl.html" />
     <Content Include="app\views\home.html" />
     <Content Include="app\views\search.html" />
@@ -966,7 +966,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Department.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Scripts\version.json" />

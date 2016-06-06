@@ -27,7 +27,7 @@ namespace DemoWebClient.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Department()
         {
             ViewBag.Message = "Your contact page.";
 

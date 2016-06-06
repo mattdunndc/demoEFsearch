@@ -13,7 +13,7 @@ namespace NRPTmodel
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public decimal rrqs_job_id { get; set; }
 
-        public int rrqs_inst_id { get; set; }
+        public int? rrqs_inst_id { get; set; }
 
         [Column(TypeName = "numeric")]
         public decimal rrqs_activity_rrac_id { get; set; }
