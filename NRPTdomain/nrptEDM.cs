@@ -5,6 +5,9 @@ namespace NRPTmodel
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
+    // add a reference to System.ComponentModel.DataAnnotations DLL 
+    using System.ComponentModel.DataAnnotations; 
+
     public partial class nrptEDM : DbContext
     {
         public nrptEDM()
@@ -18,6 +21,8 @@ namespace NRPTmodel
         public virtual DbSet<t_rrqs_resource_request> t_rrqs_resource_request { get; set; }
         public virtual DbSet<t_user> t_user { get; set; }
         public virtual DbSet<v_rrqs_aggregated_requests> v_rrqs_aggregated_requests { get; set; }
+
+
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -561,7 +566,7 @@ namespace NRPTmodel
                 .HasMany(e => e.t_rrqs_resource_request4)
                 .WithOptional(e => e.t_user4)
                 .HasForeignKey(e => e.rrqs_req_exmr_user_id);
-
+            
             modelBuilder.Entity<v_rrqs_aggregated_requests>()
                 .Property(e => e.activity_id)
                 .HasPrecision(6, 0);
@@ -571,6 +576,6 @@ namespace NRPTmodel
                 .IsUnicode(false);
         }
 
-        public System.Data.Entity.DbSet<NRPTmodel.t_proj_project> t_proj_project { get; set; }
+        
     }
 }

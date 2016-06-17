@@ -34,6 +34,13 @@ namespace DemoWebClient.Controllers
             return View();
         }
 
+        public ActionResult Project()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+
         public ActionResult Search()
         {
             ViewBag.Message = "Search banks";

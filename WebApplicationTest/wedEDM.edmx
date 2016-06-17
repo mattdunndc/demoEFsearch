@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="sisdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="t_dept_smart">
+          <Key>
+            <PropertyRef Name="dept_id" />
+          </Key>
+          <Property Name="dept_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="dept_eff_stat_cd" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="dept_desc_tx" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="dept_budg_cd" Type="int" />
+          <Property Name="dept_abrv_nm" Type="varchar" MaxLength="20" />
+          <Property Name="dept_ml_server_chg_ts" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="t_user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="user_first_nm" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="user_last_nm" Type="varchar" MaxLength="17" Nullable="false" />
+          <Property Name="user_last_updt_ts" Type="datetime" Nullable="false" />
+          <Property Name="user_actv_in" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="user_email_addr_nm" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_wkas_in" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="user_max_sub_ct" Type="smallint" Nullable="false" />
+          <Property Name="user_ntwk_acct_nm" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="user_grade_lvl_cd" Type="varchar" MaxLength="5" />
+          <Property Name="user_dept_id" Type="varchar" MaxLength="10" />
+          <Property Name="user_supervisor_user_id" Type="varchar" MaxLength="8" />
+          <Property Name="user_employee_id" Type="varchar" MaxLength="11" />
+          <Property Name="user_ml_server_chg_ts" Type="datetime" Nullable="false" />
+          <Property Name="user_grade_step_cd" Type="varchar" MaxLength="2" />
+          <Property Name="user_home_zip_code" Type="varchar" MaxLength="5" />
+          <Property Name="user_occupation_cd" Type="varchar" MaxLength="4" />
+        </EntityType>
+        <EntityContainer Name="sisdbModelStoreContainer">
+          <EntitySet Name="t_dept_smart" EntityType="Self.t_dept_smart" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="t_user" EntityType="Self.t_user" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="sisdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="t_dept_smart">
+          <Key>
+            <PropertyRef Name="dept_id" />
+          </Key>
+          <Property Name="dept_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dept_eff_stat_cd" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="dept_desc_tx" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dept_budg_cd" Type="Int32" />
+          <Property Name="dept_abrv_nm" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="dept_ml_server_chg_ts" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="t_user" Relationship="sisdbModel.t_usert_dept_smart" FromRole="t_dept_smart" ToRole="t_user" />
+        </EntityType>
+        <EntityType Name="t_user">
+          <Key>
+            <PropertyRef Name="user_id" />
+          </Key>
+          <Property Name="user_id" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_first_nm" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_last_nm" Type="String" MaxLength="17" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_last_updt_ts" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="user_actv_in" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="user_email_addr_nm" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_wkas_in" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="user_max_sub_ct" Type="Int16" Nullable="false" />
+          <Property Name="user_ntwk_acct_nm" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_grade_lvl_cd" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="user_dept_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="user_supervisor_user_id" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="user_employee_id" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="user_ml_server_chg_ts" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="user_grade_step_cd" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="user_home_zip_code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="user_occupation_cd" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="t_dept_smart_dept_id" Type="String" Nullable="true" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="t_dept_smart" Relationship="sisdbModel.t_usert_dept_smart" FromRole="t_user" ToRole="t_dept_smart" />
+        </EntityType>
+        <EntityContainer Name="sisdbEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="t_dept_smart" EntityType="Self.t_dept_smart" />
+          <EntitySet Name="t_user" EntityType="Self.t_user" />
+          <AssociationSet Name="t_usert_dept_smart" Association="sisdbModel.t_usert_dept_smart">
+            <End Role="t_user" EntitySet="t_user" />
+            <End Role="t_dept_smart" EntitySet="t_dept_smart" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="t_usert_dept_smart">
+          <End Type="sisdbModel.t_user" Role="t_user" Multiplicity="*" />
+          <End Type="sisdbModel.t_dept_smart" Role="t_dept_smart" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="t_dept_smart">
+              <PropertyRef Name="dept_id" />
+            </Principal>
+            <Dependent Role="t_user">
+              <PropertyRef Name="user_dept_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="sisdbModelStoreContainer" CdmEntityContainer="sisdbEntities2">
+          <EntitySetMapping Name="t_dept_smart">
+            <EntityTypeMapping TypeName="sisdbModel.t_dept_smart">
+              <MappingFragment StoreEntitySet="t_dept_smart">
+                <ScalarProperty Name="dept_id" ColumnName="dept_id" />
+                <ScalarProperty Name="dept_eff_stat_cd" ColumnName="dept_eff_stat_cd" />
+                <ScalarProperty Name="dept_desc_tx" ColumnName="dept_desc_tx" />
+                <ScalarProperty Name="dept_budg_cd" ColumnName="dept_budg_cd" />
+                <ScalarProperty Name="dept_abrv_nm" ColumnName="dept_abrv_nm" />
+                <ScalarProperty Name="dept_ml_server_chg_ts" ColumnName="dept_ml_server_chg_ts" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="t_user">
+            <EntityTypeMapping TypeName="sisdbModel.t_user">
+              <MappingFragment StoreEntitySet="t_user">
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="user_first_nm" ColumnName="user_first_nm" />
+                <ScalarProperty Name="user_last_nm" ColumnName="user_last_nm" />
+                <ScalarProperty Name="user_last_updt_ts" ColumnName="user_last_updt_ts" />
+                <ScalarProperty Name="user_actv_in" ColumnName="user_actv_in" />
+                <ScalarProperty Name="user_email_addr_nm" ColumnName="user_email_addr_nm" />
+                <ScalarProperty Name="user_wkas_in" ColumnName="user_wkas_in" />
+                <ScalarProperty Name="user_max_sub_ct" ColumnName="user_max_sub_ct" />
+                <ScalarProperty Name="user_ntwk_acct_nm" ColumnName="user_ntwk_acct_nm" />
+                <ScalarProperty Name="user_grade_lvl_cd" ColumnName="user_grade_lvl_cd" />
+                <ScalarProperty Name="user_dept_id" ColumnName="user_dept_id" />
+                <ScalarProperty Name="user_supervisor_user_id" ColumnName="user_supervisor_user_id" />
+                <ScalarProperty Name="user_employee_id" ColumnName="user_employee_id" />
+                <ScalarProperty Name="user_ml_server_chg_ts" ColumnName="user_ml_server_chg_ts" />
+                <ScalarProperty Name="user_grade_step_cd" ColumnName="user_grade_step_cd" />
+                <ScalarProperty Name="user_home_zip_code" ColumnName="user_home_zip_code" />
+                <ScalarProperty Name="user_occupation_cd" ColumnName="user_occupation_cd" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

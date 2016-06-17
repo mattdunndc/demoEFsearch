@@ -122,6 +122,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\aboutCtrl.js" />
+    <Content Include="app\controllers\projAddEditCtrl.js" />
+    <Content Include="app\controllers\projCtrl.js" />
     <Content Include="app\controllers\instAddEditCtrl.js" />
     <Content Include="app\controllers\institutionCtrl.js" />
     <Content Include="app\controllers\deptCtrl.js" />
@@ -130,6 +132,8 @@
     <Content Include="app\demoapp.js" />
     <Content Include="app\services\services.js" />
     <Content Include="app\views\about.html" />
+    <Content Include="app\views\projectDetail.html" />
+    <Content Include="app\views\project.html" />
     <Content Include="app\views\editBankModal.html" />
     <Content Include="app\views\instEdit.html" />
     <Content Include="app\views\institAddEdit.html" />
@@ -972,6 +976,7 @@
     <Content Include="Scripts\version.json" />
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\Institution.cshtml" />
+    <Content Include="Views\Home\Project.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

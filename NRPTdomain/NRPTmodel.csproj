@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="actEDM.cs" />
+    <Compile Include="Models\t_userDTOmin.cs" />
+    <Compile Include="Models\t_vvlu_valid_valueDTO.cs" />
     <Compile Include="nrptEDM.cs" />
     <Compile Include="projEDM.cs" />
     <Compile Include="tempEDM.cs" />

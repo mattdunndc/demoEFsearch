@@ -55,7 +55,7 @@ namespace NRPTmodel
 
         [StringLength(5)]
         public string user_grade_lvl_cd { get; set; }
-
+        
         [StringLength(10)]
         public string user_dept_id { get; set; }
 
@@ -93,5 +93,6 @@ namespace NRPTmodel
         public virtual ICollection<t_rrqs_resource_request> t_rrqs_resource_request3 { get; set; }
 
         public virtual ICollection<t_rrqs_resource_request> t_rrqs_resource_request4 { get; set; }
+        
     }
 }

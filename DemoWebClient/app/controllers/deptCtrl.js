@@ -15,7 +15,7 @@ app.controller('DepartmentController', function ($scope, odataService, notificat
                 $scope.currentPage = 1;
                 $scope.pageSize = 10;
 
-                $scope.banks = data.value;
+                //$scope.banks = data.value;
 
                 $scope.pageChangeHandler = function (num) {
                     console.log('page changed to ' + num);

@@ -8,6 +8,7 @@ namespace NRPTmodel
 
     public partial class t_dept_smart
     {
+        
         [Key]
         [StringLength(10)]
         public string dept_id { get; set; }
@@ -26,5 +27,6 @@ namespace NRPTmodel
         public string dept_abrv_nm { get; set; }
 
         public DateTime dept_ml_server_chg_ts { get; set; }
+        
     }
 }

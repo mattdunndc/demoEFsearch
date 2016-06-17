@@ -1,4 +1,4 @@
-﻿var app = angular.module('demoapp', ['ngRoute', 'ngResource','angularUtils.directives.dirPagination']);
+﻿var app = angular.module('demoapp', ['ngRoute', 'ngResource', 'angularUtils.directives.dirPagination', 'ngMaterial']);
 app.config([
   '$locationProvider', '$routeProvider',
   function ($locationProvider, $routeProvider) {
@@ -15,6 +15,10 @@ app.config([
           templateUrl: '/app/views/dept.html',
           controller: 'DepartmentController'
       })
+      .when('/Home/Project', { // MVC For Contact page  
+        templateUrl: '/app/views/project.html',
+        controller: 'ProjectController'
+      })
       .when('/Home/Institution', { // For instit page  
           templateUrl: '/app/views/institution.html',
           controller: 'InstitutionController'
@@ -27,10 +31,20 @@ app.config([
           templateUrl: '/app/views/search.html',
           controller: 'SearchController'
       })
+      .when('/Home/Project/edit/:id?', { // add question mark for optional parameter   
+          templateUrl: '/app/views/projectDetail.html',
+          controller: 'ProjectAddEditController',
+          controllerAs: 'vm'
+          })
       .when('/Home/Institution/edit/:id?', { // add question mark for optional parameter   
           templateUrl: '/app/views/instEdit.html',
           controller: 'InstitutionAddEditController',
           controllerAs: 'vm'
       })
       .otherwise({ redirectTo: '/' })
-  }]);
+  }])
+.config(function ($mdThemingProvider) {
+    $mdThemingProvider.theme('default')
+      .accentPalette('deep-orange');
+})
+;

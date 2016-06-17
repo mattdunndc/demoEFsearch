@@ -55,5 +55,7 @@ namespace NRPTmodel
                 .HasForeignKey(e => e.prin_proj_id)
                 .WillCascadeOnDelete(false);
         }
+
+        
     }
 }
