@@ -47,5 +47,11 @@ namespace DemoWebClient.Controllers
 
             return View();
         }
+        public ActionResult Other()
+        {
+            ViewBag.Message = "other test...";
+
+            return View();
+        }
     }
 }

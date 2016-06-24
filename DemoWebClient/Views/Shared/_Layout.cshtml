@@ -43,6 +43,7 @@
     <script src="~/app/controllers/projAddEditCtrl.js"></script>
     <script src="~/app/services/services.js"></script>
 
+    <script src="~/app/controllers/testCtrl.js"></script>
 </head>
 <body ng-app="demoapp">
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -63,6 +64,7 @@
                     <li>@Html.ActionLink("Institution", "Institution", "Home")</li>
                     <li>@Html.ActionLink("Project", "Project", "Home")</li>
                     <li>@Html.ActionLink("Search", "Search", "Home")</li>
+                    <li>@Html.ActionLink("Other Test", "Other", "Home")</li>
                 </ul>
                 <p class="nav navbar-text navbar-right">Hello, @User.Identity.Name!</p>
             </div>

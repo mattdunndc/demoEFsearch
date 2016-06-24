@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\controllers\aboutCtrl.js" />
+    <Content Include="app\controllers\otherCtrl.js" />
     <Content Include="app\controllers\projAddEditCtrl.js" />
     <Content Include="app\controllers\projCtrl.js" />
     <Content Include="app\controllers\instAddEditCtrl.js" />
@@ -129,9 +130,11 @@
     <Content Include="app\controllers\deptCtrl.js" />
     <Content Include="app\controllers\searchCtrl.js" />
     <Content Include="app\controllers\homeCtrl.js" />
+    <Content Include="app\controllers\testCtrl.js" />
     <Content Include="app\demoapp.js" />
     <Content Include="app\services\services.js" />
     <Content Include="app\views\about.html" />
+    <Content Include="app\views\test.html" />
     <Content Include="app\views\projectDetail.html" />
     <Content Include="app\views\project.html" />
     <Content Include="app\views\editBankModal.html" />
@@ -151,6 +154,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\angular-advanced\angular-advanced-searchbox-tpls.min.js" />
+    <Content Include="Scripts\angular-advanced\angular-advanced-searchbox.min.css" />
+    <Content Include="Scripts\angular-advanced\angular-advanced-searchbox.min.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
@@ -977,6 +983,7 @@
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\Institution.cshtml" />
     <Content Include="Views\Home\Project.cshtml" />
+    <Content Include="Views\Home\Other.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

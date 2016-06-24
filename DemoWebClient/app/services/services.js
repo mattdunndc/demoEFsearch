@@ -1,5 +1,5 @@
 ﻿app.factory('odataService', function ($resource) {
-    var odataUrl = 'http://localhost:65406/odata/';
+    var odataUrl = 'http://localhost:55580/odata/';
     return $resource('', {},
         {
             'getAll': { method: 'GET', params: { entity: '@entity' }, url: odataUrl + ':entity' },
@@ -30,7 +30,7 @@
     };
 }).factory('apiService', ['$http',function ($http) {
    
-    var urlBase = 'http://localhost:65406/api/';
+    var urlBase = 'http://localhost:55580/api/';
     var apiService = {};
 
     apiService.getEntity = function (entity) {

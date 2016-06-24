@@ -33,7 +33,7 @@ app.controller('ProjectAddEditController', function (odataService, notificationF
     
     ///////////
     function getUsers() {
-        apiService.getEntity('tusers')
+        apiService.getEntity('users')
             .then(function (response) {
                 vm.users = response.data;
                 notificationFactory.success('Users loaded.');
