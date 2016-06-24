@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<div style='padding: 20px;' ng-cloak> </div>
+<h3> {{ vm.project.proj_project_nm }} </h3>
+<hr/>
+<md-content>
+    <form name="editForm" novalidate style="max-width: 500px;">
+        <strong class="error">{{ error }}</strong>
+        <div class="form-group">
+            <label class="control-label" for="shortName">Project Name</label>
+            <input type="text" class="form-control" ng-model="vm.project.proj_project_nm" name="shortName" id="shortName" placeholder="Project Name"
+                   validate-on="blur" required required-message="'Project Name is required'">
+        </div>
+        <div class="form-group">
+            <label for="projType">
+                Project Type:
+            </label>
+            <input type="text" class="form-control" id="pobj_project_type_cd" ng-model="vm.project.pobj_project_type_cd" />
+        </div>
+
+    <div class="form-group">
+        <label for="proj_start_dt">Start date:</label>
+        <md-datepicker name="proj_start_dt" ng-model="vm.project.proj_start_dt" md-placeholder="Enter Start date"></md-datepicker>
+    </div>
+    <div class="form-group">
+        <label for="proj_end_dt">End  date:</label>
+        <md-datepicker name="proj_end_dt" ng-model="vm.project.proj_end_dt" md-placeholder="Enter End date"></md-datepicker>
+    </div>
+        <div class="form-group">
+            <label for="user">
+                Contact: {{vm.project.proj_contact_user_id}}
+            </label>
+            <select name="user" required class="form-control" ng-model="vm.project.proj_contact_user_id"
+                    ng-options="user.user_id as user.fullName for user in vm.users">
+                <option value=""></option>
+            </select>
+            <span class="errorMessage" ng-show="editForm.state.$touched && editForm.state.$invalid">
+                User ID is required
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="active">
+                Active/Inactive:
+            </label>
+            <input type="text" class="form-control" id="proj_active_in" ng-model="vm.project.proj_active_in" />
+        </div>
+        <!-- country state test
+
+        -->
+        <a href="/Home/Project" class="btn btn-info">Back to List</a>
+        <button type="submit" class="btn btn-primary" ng-click="vm.saveProject()" ng-disabled="editForm.$invalid || !editForm.$dirty">
+            Update
+        </button>
+</md-content>
+    </form>
+</html>

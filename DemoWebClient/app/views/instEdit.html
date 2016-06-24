@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<div style='padding: 20px;' ng-cloak> </div>
+<h3> {{ vm.bank.inst_full_name }} </h3>
+<h4>Assets: {{ vm.bank.inst_latest_asset_am }}</h4>
+<hr/>
+<form name="editForm" novalidate style="max-width: 500px;">
+    <strong class="error">{{ error }}</strong>
+    <div class="form-group">
+        <label class="control-label" for="shortName">Short Name</label>
+        <input type="text" class="form-control" ng-model="vm.bank.inst_short_name" name="shortName" id="shortName" placeholder="Institution Short Name"
+               validate-on="blur" required required-message="'Institution Short Name is required'">
+    </div>
+    <div class="form-group">
+        <label for="city">
+            City Name:
+        </label>
+        <input type="text" class="form-control" id="inst_loc_city_name" ng-model="vm.bank.inst_loc_city_name"/>
+    </div>
+    <div class="form-group">
+        <label for="state">
+            State:
+        </label>
+        <select name="state" required class="form-control" ng-model="vm.bank.inst_loc_st_abbrv"
+                ng-options="state.stcd_state_abbrv as state.stcd_state_desc for state in vm.states">
+            <option value=""></option>
+        </select>
+        <span class="errorMessage" ng-show="editForm.state.$touched && editForm.state.$invalid">
+            2 character state is required
+        </span>
+    </div>
+    <div class="form-group">
+        <label for="zip">
+            Zipcode:
+        </label>
+        <input type="text" class="form-control" id="zip" ng-model="vm.bank.inst_loc_zip_code"/>
+    </div>
+    <div class="form-group">
+        <label for="active">
+            Active/Inactive:
+        </label>
+        <input type="text" class="form-control" id="inst_actv_in" ng-model="vm.bank.inst_actv_in"/>
+    </div>
+    <!-- country state test
+    <div class="form-group">
+        <label for="country">
+            Country:
+        </label>
+        <select class="form-control" id="country" ng-model="country" ng-options="c.Value as c.Text for c in countries" ng-change="getStates()">
+            <option value="">-- Select Country --</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="state">
+            State:
+        </label>
+        <select class="form-control" id="state" ng-model="state" ng-disabled="!states" ng-options="s.Value as s.Text for s in states">
+            <option value="">-- Select State --</option>
+        </select>
+    </div>
+    -->
+    <a href="/Home/Institution" class="btn btn-info">Back to List</a>
+    <button type="submit" class="btn btn-primary" ng-click="vm.saveBank()" ng-disabled="editForm.$invalid || !editForm.$dirty">
+        Update
+    </button>
+</form>
+</html>
