@@ -10,19 +10,17 @@ namespace NRPTmodel
 
     public partial class nrptEDM : DbContext
     {
-        public nrptEDM()
-            : base("name=nrptEDM")
+        public nrptEDM() : base("name=nrptEDM")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public virtual DbSet<t_dept_smart> t_dept_smart { get; set; }
         public virtual DbSet<t_inst_institutn> t_inst_institutn { get; set; }
         public virtual DbSet<t_rrac_activity> t_rrac_activity { get; set; }
         public virtual DbSet<t_rrqs_resource_request> t_rrqs_resource_request { get; set; }
-        public virtual DbSet<t_user> t_user { get; set; }
         public virtual DbSet<v_rrqs_aggregated_requests> v_rrqs_aggregated_requests { get; set; }
-
-
+        
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -458,114 +456,6 @@ namespace NRPTmodel
                 .Property(e => e.rrqs_work_days_type_cd)
                 .IsFixedLength()
                 .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_id)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_first_nm)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_last_nm)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_actv_in)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_email_addr_nm)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_wkas_in)
-                .IsFixedLength()
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_ntwk_acct_nm)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_grade_lvl_cd)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_dept_id)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_supervisor_user_id)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_employee_id)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_grade_step_cd)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_home_zip_code)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .Property(e => e.user_occupation_cd)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<t_user>()
-                .HasMany(e => e.t_rrac_activity)
-                .WithRequired(e => e.t_user)
-                .HasForeignKey(e => e.rrac_last_appupdt_user_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<t_user>()
-                .HasMany(e => e.t_rrac_activity1)
-                .WithRequired(e => e.t_user1)
-                .HasForeignKey(e => e.rrac_contact_user_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<t_user>()
-                .HasMany(e => e.t_rrac_activity2)
-                .WithRequired(e => e.t_user2)
-                .HasForeignKey(e => e.rrac_create_user_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<t_user>()
-                .HasMany(e => e.t_rrac_activity3)
-                .WithOptional(e => e.t_user3)
-                .HasForeignKey(e => e.rrac_team_lead_user_id);
-
-            modelBuilder.Entity<t_user>()
-                .HasMany(e => e.t_rrqs_resource_request)
-                .WithOptional(e => e.t_user)
-                .HasForeignKey(e => e.rrqs_actual_exmr_user_id);
-
-            modelBuilder.Entity<t_user>()
-                .HasMany(e => e.t_rrqs_resource_request1)
-                .WithOptional(e => e.t_user1)
-                .HasForeignKey(e => e.rrqs_confirm_user_id);
-
-            modelBuilder.Entity<t_user>()
-                .HasMany(e => e.t_rrqs_resource_request2)
-                .WithRequired(e => e.t_user2)
-                .HasForeignKey(e => e.rrqs_create_user_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<t_user>()
-                .HasMany(e => e.t_rrqs_resource_request3)
-                .WithRequired(e => e.t_user3)
-                .HasForeignKey(e => e.rrqs_last_appupdt_user_id)
-                .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<t_user>()
-                .HasMany(e => e.t_rrqs_resource_request4)
-                .WithOptional(e => e.t_user4)
-                .HasForeignKey(e => e.rrqs_req_exmr_user_id);
             
             modelBuilder.Entity<v_rrqs_aggregated_requests>()
                 .Property(e => e.activity_id)

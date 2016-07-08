@@ -52,6 +52,11 @@
   <ItemGroup>
     <Compile Include="actEDM.cs" />
     <Compile Include="AppEDM.cs" />
+    <Compile Include="Models\t_inst_institutnDTOmin.cs" />
+    <Compile Include="Models\t_prap_proj_scadDTO.cs" />
+    <Compile Include="Models\t_prdp_proj_deptDTO.cs" />
+    <Compile Include="Models\t_prin_proj_instDTO.cs" />
+    <Compile Include="Models\t_proj_projectDTO.cs" />
     <Compile Include="Models\t_rrfa_rrqs_funct_area_refDTO.cs" />
     <Compile Include="Models\t_userDTOmin.cs" />
     <Compile Include="Models\t_vvlu_valid_valueDTO.cs" />
@@ -73,11 +78,12 @@
     <Compile Include="Models\t_proj_project.cs" />
     <Compile Include="Models\t_rrac_activity.cs" />
     <Compile Include="Models\t_rrqs_resource_request.cs" />
-    <Compile Include="Models\t_user.cs" />
     <Compile Include="Models\v_rrqs_aggregated_requests.cs" />
     <Compile Include="Models\t_vvlu_valid_value.cs" />
     <Compile Include="Models\t_prap_proj_scad.cs" />
     <Compile Include="Models\t_scad_app_def.cs" />
+    <Compile Include="Models\t_user.cs" />
+    <Compile Include="userEDM.cs" />
     <Compile Include="vvluEDM.cs" />
   </ItemGroup>
   <ItemGroup>

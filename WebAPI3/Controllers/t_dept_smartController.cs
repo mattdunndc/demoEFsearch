@@ -24,6 +24,7 @@ namespace WebAPI3.Controllers
         }
 
         // GET: api/t_dept_smart/5
+        //api/t_dept_smart/AJ00000294
         [ResponseType(typeof(t_dept_smart))]
         public IHttpActionResult Gett_dept_smart(string id)
         {

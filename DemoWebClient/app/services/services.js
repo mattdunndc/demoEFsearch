@@ -1,10 +1,11 @@
 ﻿app.factory('odataService', function ($resource) {
-    var odataUrl = 'http://localhost:55580/odata/';
+    var odataUrl = 'http://hqevdevlweb02:8066/odata/';
+    //var odataUrl = 'http://localhost:55580/odata/';
     return $resource('', {},
         {
             'getAll': { method: 'GET', params: { entity: '@entity' }, url: odataUrl + ':entity' },
-            'getTop1000': { method: 'GET',params: { entity: '@entity' }, url: odataUrl + ':entity' + '?$top=100' },
-            'create': { method: 'POST', url: odataUrl },
+            'getTop100': { method: 'GET',params: { entity: '@entity' }, url: odataUrl + ':entity' + '?$top=100' },
+            'insert': { method: 'POST', params: { entity: '@entity' }, url: odataUrl + ':entity' },
             'patchID': { method: 'PATCH', params: { entity: '@entity', id: '@id' }, url: odataUrl + ':entity' + '(:id)' },
             'getEntityID': { method: 'GET', params: { entity: '@entity', id: '@id' }, url: odataUrl + ':entity' + '(:id)' },
             'getEntity': { method: 'GET', params: { id: '@id' }, url: odataUrl + '(:id)' },
@@ -13,7 +14,7 @@
             'deleteEntity': { method: 'DELETE', params: { key: '@key' }, url: odataUrl + '(:key)' },
             'addEntity': { method: 'POST', url: odataUrl }
         });
-}).factory('notificationFactory', function () {
+}).factory('notifyService', function () {
     return {
         success: function (text) {
             toastr.success(text, "Success");
@@ -29,8 +30,9 @@
         }
     };
 }).factory('apiService', ['$http',function ($http) {
-   
-    var urlBase = 'http://localhost:55580/api/';
+
+    var urlBase = 'http://hqevdevlweb02:8066/api/';
+    //var urlBase = 'http://localhost:55580/api/';
     var apiService = {};
 
     apiService.getEntity = function (entity) {

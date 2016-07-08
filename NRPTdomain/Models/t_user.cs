@@ -8,19 +8,6 @@ namespace NRPTmodel
 
     public partial class t_user
     {
-        public t_user()
-        {
-            t_rrac_activity = new HashSet<t_rrac_activity>();
-            t_rrac_activity1 = new HashSet<t_rrac_activity>();
-            t_rrac_activity2 = new HashSet<t_rrac_activity>();
-            t_rrac_activity3 = new HashSet<t_rrac_activity>();
-            t_rrqs_resource_request = new HashSet<t_rrqs_resource_request>();
-            t_rrqs_resource_request1 = new HashSet<t_rrqs_resource_request>();
-            t_rrqs_resource_request2 = new HashSet<t_rrqs_resource_request>();
-            t_rrqs_resource_request3 = new HashSet<t_rrqs_resource_request>();
-            t_rrqs_resource_request4 = new HashSet<t_rrqs_resource_request>();
-        }
-
         [Key]
         [StringLength(8)]
         public string user_id { get; set; }
@@ -55,7 +42,7 @@ namespace NRPTmodel
 
         [StringLength(5)]
         public string user_grade_lvl_cd { get; set; }
-        
+
         [StringLength(10)]
         public string user_dept_id { get; set; }
 
@@ -75,24 +62,5 @@ namespace NRPTmodel
 
         [StringLength(4)]
         public string user_occupation_cd { get; set; }
-
-        public virtual ICollection<t_rrac_activity> t_rrac_activity { get; set; }
-
-        public virtual ICollection<t_rrac_activity> t_rrac_activity1 { get; set; }
-
-        public virtual ICollection<t_rrac_activity> t_rrac_activity2 { get; set; }
-
-        public virtual ICollection<t_rrac_activity> t_rrac_activity3 { get; set; }
-
-        public virtual ICollection<t_rrqs_resource_request> t_rrqs_resource_request { get; set; }
-
-        public virtual ICollection<t_rrqs_resource_request> t_rrqs_resource_request1 { get; set; }
-
-        public virtual ICollection<t_rrqs_resource_request> t_rrqs_resource_request2 { get; set; }
-
-        public virtual ICollection<t_rrqs_resource_request> t_rrqs_resource_request3 { get; set; }
-
-        public virtual ICollection<t_rrqs_resource_request> t_rrqs_resource_request4 { get; set; }
-        
     }
 }

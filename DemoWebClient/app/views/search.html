@@ -1,22 +1,16 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+﻿<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta name="viewport" content="width=device-width" />
-
-    <link href="~/Scripts/angular-advanced/angular-advanced-searchbox.css" rel="stylesheet" />
-    <script src="~/Scripts/angular-advanced/angular-advanced-searchbox-tpls.min.js"></script>
-    
-    <!-- optional for auto complete / suggested value feature -->
-    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
-
-   <h2>Search</h2>
+   <h2>{{message}} Search</h2>
 </head>
 <body>
-    <div ng-controller="testCtrl">
-        <nit-advanced-searchbox ng-model="searchParams" parameters="availableSearchParams" placeholder="Search..."></nit-advanced-searchbox>
-        <button class="btn btn-info" ng-click="showOutput = ! showOutput">Search</button>
-        <div ng-show="showOutput">
-            {{searchParams}}
-        </div>
+<div ng-controller="SearchController">
+    <nit-advanced-searchbox ng-model="searchParams"
+                            parameters="availableSearchParams"
+                            placeholder="Search...">
+    </nit-advanced-searchbox>
+    <button class="btn btn-info" ng-click="showOutput = ! showOutput">Search</button>
+    <div ng-show="showOutput">
+        {{searchParams}}
     </div>
+</div>
 </body>

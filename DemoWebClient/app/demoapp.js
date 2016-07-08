@@ -1,4 +1,4 @@
-﻿var app = angular.module('demoapp', ['ngRoute', 'ngResource', 'angularUtils.directives.dirPagination', 'ngMaterial']);
+﻿var app = angular.module('demoapp', ['ngRoute', 'ngResource', 'angularUtils.directives.dirPagination', 'ngMaterial', 'angular-advanced-searchbox']);
 app.config([
   '$locationProvider', '$routeProvider',
   function ($locationProvider, $routeProvider) {

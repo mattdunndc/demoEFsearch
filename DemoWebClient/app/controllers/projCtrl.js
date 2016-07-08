@@ -1,21 +1,21 @@
 ﻿'use strict';
-app.controller('ProjectController', function ($scope, odataService, notificationFactory, apiService) {
+app.controller('ProjectController', function ($scope, odataService, notifyService, apiService) {
     // Get Top 10 Employees
-    notificationFactory.info('Loading Projects...');
+    notifyService.info('Loading Projects...');
 
     $scope.getProjects = function () {
-        (new odataService()).$getTop1000({ entity: 't_proj_project' })
+        (new odataService()).$getTop100({ entity: 't_proj_project' })
             .then(function (data) {
 
                 $scope.currentPage = 1;
                 $scope.pageSize = 10;
 
-                $scope.projects = data.value;
+                $scope.projects = data.value;  //needs data.value
 
                 $scope.pageChangeHandler = function (num) {
                     console.log('page changed to ' + num);
                 };
-                notificationFactory.success('Projects loaded.');
+                notifyService.success('Projects loaded.');
 
             });
     };

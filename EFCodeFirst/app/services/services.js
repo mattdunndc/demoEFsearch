@@ -12,7 +12,7 @@
             'deleteEntity': { method: 'DELETE', params: { key: '@key' }, url: odataUrl + '(:key)' },
             'addEntity': { method: 'POST', url: odataUrl }
         });
-}).factory('notificationFactory', function () {
+}).factory('notifyService', function () {
     return {
         success: function (text) {
             toastr.success(text, "Success");

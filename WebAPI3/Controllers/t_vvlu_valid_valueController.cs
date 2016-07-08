@@ -19,6 +19,7 @@ namespace WebAPI3.Controllers
         //// need custom route here
         /// http://localhost:55580/api/vvlu/rrqs_work_days_type_cd
         /// http://localhost:55580/api/vvlu/rrdp_district_cd SupervisoryOfficesBR GetAllDistricts()
+        /// http://localhost:55580/api/vvlu/pobj_project_type_cd //project types
         [Route("~/api/vvlu/{col_nm}")]
         [ResponseType(typeof(t_vvlu_valid_valueDTO))]
         public IHttpActionResult Get(string col_nm)

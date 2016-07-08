@@ -1,6 +1,6 @@
-﻿var userCtrl = function ($scope, odataService, notificationFactory) {
+﻿var userCtrl = function ($scope, odataService, notifyService) {
     // Get Top 10 Employees
-    notificationFactory.info('Loading Banks...');
+    notifyService.info('Loading Banks...');
     $scope.getBanks = function () {
         (new odataService()).$getTop1000({ entity: 't_inst_institutn' })
             .then(function (data) {
@@ -14,7 +14,7 @@
                     console.log('page changed to ' + num);
                 };
 
-                notificationFactory.success('Banks loaded.');
+                notifyService.success('Banks loaded.');
             });
     };
 

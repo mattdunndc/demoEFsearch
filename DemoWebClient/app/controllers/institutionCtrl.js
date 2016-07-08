@@ -1,12 +1,12 @@
 ﻿'use strict';
-app.controller('InstitutionController', function ($scope, odataService, notificationFactory,$location) {
+app.controller('InstitutionController', function ($scope, odataService, notifyService) {
     // Get Top 10 Employees
     ////(new odataService()).$getTop1000({ entity: 't_inst_institutn' })
     /// (new odataService()).$getEntityID({ entity: 't_inst_institutn', id:957})
     
-    notificationFactory.info('Loading Banks...');
+    notifyService.info('Loading Banks...');
     $scope.getBanks = function () {
-        (new odataService()).$getTop1000({ entity: 't_inst_institutn' })
+        (new odataService()).$getTop100({ entity: 't_inst_institutn' })
             .then(function (data) {
 
                 $scope.currentPage = 1;
@@ -17,7 +17,7 @@ app.controller('InstitutionController', function ($scope, odataService, notifica
                 $scope.pageChangeHandler = function (num) {
                     console.log('page changed to ' + num);
                 };
-                notificationFactory.success('Banks loaded.');
+                notifyService.success('Banks loaded.');
                 
             });
     };
@@ -29,17 +29,17 @@ app.controller('InstitutionController', function ($scope, odataService, notifica
     };
 
 
-    $scope.goEdit = function (bank) {
-        $scope.eBank = bank;
-        //notificationFactory.success('go edit location.');
-        $location.path('/Home/Institution/edit/'+bank.inst_id);
+    //$scope.goEdit = function (bank) {
+    //    $scope.eBank = bank;
+    //    //notifyService.success('go edit location.');
+    //    $location.path('/Home/Institution/edit/'+bank.inst_id);
 
-    };
+    //};
 
-    $scope.changeView = function (view) {
-        notificationFactory.info('change view.');
-        $location.path(view);
-    };
+    //$scope.changeView = function (view) {
+    //    notifyService.info('change view.');
+    //    $location.path(view);
+    //};
     
     //$scope.message = 'Institution controller loaded';
     }

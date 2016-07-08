@@ -15,33 +15,83 @@ namespace WebAPI3.Controllers
 {
     public class t_userController : ApiController
     {
-        private nrptEDM db = new nrptEDM();
+        private userEDM db = new userEDM();
 
         /////////////////////////////
-        //// need custom route here
+        //// custom route here
+////        // GET: api/t_dept_smart/5
+////        [Route("~/api/users")]
+////        [ResponseType(typeof(t_userDTOmin))]
+////        public IHttpActionResult Get()
+////        {
+////            StringBuilder sb = new System.Text.StringBuilder();
+////            //  Create and execute raw SQL query.
+////            //string query = @"Select TOP dbo.fn_user_get_name(user_id) as 'fullName' from t_user";
+////            //string query = @"Select TOP 100 user_id from t_user";    
+////            string query = @"SELECT user_id,dbo.fn_user_get_name(user_id) as 'fullName'	FROM t_user 
+////                             where user_wkas_in = 'Y' AND user_actv_in = 'Y' ";
+////            var oclause = " order by lower(dbo.fn_user_get_name(user_id))";
+////            sb.Append(query).Append(oclause);
+
+////            var results = db.Database.SqlQuery<t_userDTOmin>(sb.ToString()).ToList();
+
+////            if (results == null)
+////            {
+////                return NotFound();
+////            }
+////            return Ok((results));
+
+////            //}
+
+////        }
+/// 
+////////////////////////////////////////////////////////
+        //// custom route here
         // GET: api/t_dept_smart/5
         [Route("~/api/users")]
         [ResponseType(typeof(t_userDTOmin))]
         public IHttpActionResult Get()
         {
-            StringBuilder sb = new System.Text.StringBuilder();
-            //  Create and execute raw SQL query.
-            //string query = @"Select TOP dbo.fn_user_get_name(user_id) as 'fullName' from t_user";
-            //string query = @"Select TOP 100 user_id from t_user";    
-            string query = @"SELECT user_id,dbo.fn_user_get_name(user_id) as 'fullName'	FROM t_user 
-                             where user_wkas_in = 'Y' AND user_actv_in = 'Y' ";
-            var oclause = " order by lower(dbo.fn_user_get_name(user_id))";
-            sb.Append(query).Append(oclause);
-
-            var results = db.Database.SqlQuery<t_userDTOmin>(sb.ToString()).ToList();
+            IEnumerable<t_userDTOmin> results = db.t_user.Where(x => (x.user_actv_in == "Y") && (x.user_wkas_in == "Y"))
+                                                        .OrderBy(x => x.user_last_nm)
+                                                        .Select(z => new t_userDTOmin()
+                                                        {
+                                                            fullName = z.user_last_nm.Trim() + ", " + z.user_first_nm.Trim(),
+                                                            user_id = z.user_id
+                                                        });
 
             if (results == null)
             {
                 return NotFound();
             }
-            return Ok((results));
+            return Ok(results);
+        }
+        ////////////////////////////////////
+        //// custom route here
+        // GET: api/t_dept_smart/5
+        [Route("~/api/users/{user_dept_id}")]
+        [ResponseType(typeof(t_userDTOmin))]
+        public IHttpActionResult Get(string user_dept_id)
+        {
+            IEnumerable<t_userDTOmin> results = db.t_user.Where(x => (x.user_dept_id == user_dept_id
+                                                        && (x.user_actv_in == "Y")
+                                                        && (x.user_wkas_in == "Y")
+                                                        ))
+                                                        .OrderBy(x =>x.user_last_nm )
+                                                        .Select(z => new t_userDTOmin()
+                                                        {
+                                                            fullName = z.user_last_nm.Trim() + ", "+z.user_first_nm.Trim(),
+                                                            user_id = z.user_id
+                                                        });
 
-            //}
+            if (results == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(results);
+
+           
 
         }
         ////////////////////////////////////

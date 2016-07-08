@@ -187,10 +187,12 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InstController.cs" />
     <Compile Include="Controllers\t_dept_smartController.cs" />
     <Compile Include="Controllers\t_inst_institutnController.cs" />
     <Compile Include="Controllers\t_prap_proj_scadController.cs" />
     <Compile Include="Controllers\t_proj_projectController.cs" />
+    <Compile Include="Controllers\t_proj_projectDTOController.cs" />
     <Compile Include="Controllers\t_rrfa_rrqs_funct_area_refController.cs" />
     <Compile Include="Controllers\t_scad_app_defController.cs" />
     <Compile Include="Controllers\t_stcd_state_cdController.cs" />
@@ -230,6 +232,7 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Properties\PublishProfiles\HQEVDEVLWEB02.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

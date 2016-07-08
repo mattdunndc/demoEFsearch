@@ -1,7 +1,7 @@
 ﻿'use strict';
-app.controller('DepartmentController', function ($scope, odataService, notificationFactory, apiService) {
+app.controller('DepartmentController', function ($scope, odataService, notifyService, apiService) {
     // Get Top 10 Employees
-    notificationFactory.info('Loading api...');
+    notifyService.info('Loading api...');
 
     //$scope.depts = [];
 

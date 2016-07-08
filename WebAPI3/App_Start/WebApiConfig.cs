@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http.Headers;
+﻿using System.Net.Http.Headers;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using System.Web.OData.Extensions;
 using System.Web.OData.Builder;
 using System.Web.OData.Extensions;
 using Microsoft.OData.Edm;
-using Microsoft.OData.Edm.Library;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using NRPTmodel;
@@ -23,8 +18,9 @@ namespace WebAPI3
             // Web API configuration and services
       
             //The origins parameter of the [EnableCors] attribute specifies which origins are allowed to access the resource.
-            var cors = new EnableCorsAttribute("http://localhost:60655", "*", "*");
-            config.EnableCors(); // requires nuget cors: Install-Package Microsoft.AspNet.WebApi.Cors
+            //var cors = new EnableCorsAttribute("http://localhost,http://localhost:60655,http://localhost:8080,http://sisnrptdevl", "*", "*");
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            config.EnableCors(cors); // requires nuget cors: Install-Package Microsoft.AspNet.WebApi.Cors
       
             // Web API routes
             config.MapHttpAttributeRoutes();
